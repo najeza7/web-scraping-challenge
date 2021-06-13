@@ -4,11 +4,11 @@ from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd 
 
-# Setup splinter
-executable_path = {'executable_path': ChromeDriverManager().install()}
-browser = Browser('chrome', **executable_path, headless=False)
 
 def scrape():
+    # Setup splinter
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
     
     ########## NASA MARS NEWS #############
     # URL of page to be scraped
@@ -119,7 +119,7 @@ def scrape():
         'hemisphere images_urls' : hemisphere_images_urls,
     }
 
-    # Close browser
+    # Close browser after scraping
     browser.quit()
 
     return scraped_data
